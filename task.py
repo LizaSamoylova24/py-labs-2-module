@@ -1,20 +1,20 @@
 class Animal:
-    def _init_(self, name, species):
+    def __init__(self, name, species):
         self.name = name
         self.species = species
 
     def sound(self):
         return "Unknown sound"
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.name} the {self.species}"
 
-    def _repr_(self):
-        return f"{self._class_._name_}(name={self.name!r}, species={self.species!r})"
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name!r}, species={self.species!r})"
 
 class Bird(Animal):
-    def _init_(self, name, species, wingspan):
-        super()._init_(name, species)
+    def __init__(self, name, species, wingspan):
+        super().__init__(name, species)
         self.wingspan = wingspan
 
     def fly(self):
@@ -23,7 +23,7 @@ class Bird(Animal):
     def sound(self):
         return "Chirp chirp"
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.name} the {self.species} with a wingspan of {self.wingspan} cm"
 
 # Создание объектов
