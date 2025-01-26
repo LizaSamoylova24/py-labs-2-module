@@ -20,9 +20,6 @@ class Bird(Animal): #задаем подкласс (наследуемый)
     def fly(self): #определяем метод, для возвращения строки
         return f"{self.name} is flying!"
 
-    def sound(self): #метод возвращающий строку 
-        return "Chirp chirp"
-
     def _str_(self): #метод возвращающий строковое представление объекта
         return f"{self.name} the {self.species} with a wingspan of {self.wingspan} cm"
 
