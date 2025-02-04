@@ -5,7 +5,7 @@ BOOKS_DATABASE = [
         "pages": 200,
     },
     {
-        "id": 2,
+        "id_": 2,
         "name": "test_name_2",
         "pages": 400,
     }
@@ -36,3 +36,4 @@ if __name__ == '__main__':
         print(book)  # проверяем метод __str__
 
     print(list_books)  # проверяем метод __repr__
+    
