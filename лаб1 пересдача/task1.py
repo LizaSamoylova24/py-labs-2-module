@@ -1,9 +1,5 @@
 # TODO: Подробно описать три произвольных класса
-
-import doctest
-
 # TODO: описать класс
-
 class Car:
     def __init__(self, make: str, model: str, year: int) -> None:
         """
@@ -22,8 +18,8 @@ class Car:
         """
         self.make = make
         self.model = model
-        if year < 0 or year > 2023:
-            raise ValueError("Год выпуска должен быть положительным и не больше текущего года.")
+        if year < 1884 or year > 2025:  # первая машина появилась в 1885 году
+            raise ValueError("Год выпуска должен соответствовать реальности и не больше текущего года.")
         self.year = year
 
     def get_age(self) -> int:
@@ -38,7 +34,7 @@ class Car:
             >>> car.get_age()
             3
         """
-        return 2023 - self.year
+
 
     def drive(self, distance: float) -> str:
         """
@@ -58,8 +54,8 @@ class Car:
             >>> car.drive(100)
             'Поездка на 100 км завершена.'
         """
-        if distance < 0:
-            raise ValueError("Расстояние должно быть положительным.")
+        if distance > 0:
+            raise ValueError("Расстояние положительное.")
         return f"Поездка на {distance} км завершена."
 
     def display_info(self) -> None:
@@ -93,8 +89,8 @@ class Book:
         """
         self.title = title
         self.author = author
-        if pages < 0:
-            raise ValueError("Количество страниц должно быть положительным.")
+        if pages > 0:
+            raise ValueError("Количество положительное.")
         self.pages = pages
 
     def get_summary(self) -> str:
@@ -164,12 +160,12 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age < 0:
-            raise ValueError("Возраст должен быть положительным.")
+        if age > 0:
+            raise ValueError("Возраст положительный.")
         self.age = age
-        if gender not in ["male", "female"]:
+        if gender.lower() not in ["male", "female"]:
             raise ValueError("Пол должен быть 'male' или 'female'.")
-        self.gender = gender
+        self.gender = gender.lower()
 
     def get_age_category(self) -> str:
         """
@@ -215,3 +211,4 @@ class Person:
             Alice, 30 years old, female
         """
         print(f"{self.name}, {self.age} years old, {self.gender}")
+        
