@@ -39,6 +39,9 @@ class PaperBook(Book):
 
     def __str__(self):
         return f"{super().__str__()}, Страниц: {self.pages}"
+        
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})"
 
 
 class AudioBook(Book):
@@ -61,6 +64,9 @@ class AudioBook(Book):
     def __str__(self):
         return f"{super().__str__()}, Продолжительность: {self.duration:.2f} часов"
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})"
+
 # Примеры использования
 if __name__ == "__main__":
     paper_book = PaperBook("Война и мир", "Лев Толстой", 1225)
@@ -68,3 +74,4 @@ if __name__ == "__main__":
 
     print(paper_book)
     print(audio_book)
+    
