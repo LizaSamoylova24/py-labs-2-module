@@ -33,3 +33,4 @@ if __name__ == "__main__":
         print(Person("Bob", -5, "male"))  # Должно вызвать исключение
     except ValueError as e:
         print(e)
+        
