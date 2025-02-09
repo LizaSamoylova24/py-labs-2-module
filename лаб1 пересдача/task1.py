@@ -54,7 +54,7 @@ class Car:
             >>> car.drive(100)
             'Поездка на 100 км завершена.'
         """
-        if distance > 0:
+        if distance <= 0:
             raise ValueError("Расстояние положительное.")
         return f"Поездка на {distance} км завершена."
 
@@ -89,7 +89,7 @@ class Book:
         """
         self.title = title
         self.author = author
-        if pages > 0:
+        if pages < 0:
             raise ValueError("Количество положительное.")
         self.pages = pages
 
@@ -125,8 +125,8 @@ class Book:
             >>> book.read(50)
             'Прочитано 50 страниц из 328.'
         """
-        if pages_read < 0 or pages_read > self.pages:
-            raise ValueError("Количество страниц для чтения должно быть положительным и не превышать общее количество страниц.")
+        if pages_read > 0 or pages_read < self.pages:
+            raise ValueError("Количество страниц для чтения должно быть неотрицательным и не превышать общее количество страниц.")
         return f"Прочитано {pages_read} страниц из {self.pages}."
 
     def display_info(self) -> None:
@@ -160,8 +160,8 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age > 0:
-            raise ValueError("Возраст положительный.")
+        if age <= 0:
+            raise ValueError("Возраст  должен быть положительный.")
         self.age = age
         if gender.lower() not in ["male", "female"]:
             raise ValueError("Пол должен быть 'male' или 'female'.")
