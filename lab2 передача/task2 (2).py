@@ -1,3 +1,4 @@
+from task import Book
 BOOKS_DATABASE = [
     {
         "id_": 1,
@@ -14,13 +15,13 @@ BOOKS_DATABASE = [
 
 
 # TODO: написать класс Book
-from task import Book
+
 
 # TODO: написать класс Library
 
 class Library: # Это объявление класса Library
 
-    def __init__(self, books = None):  # инициализация конструктора класса 
+    def init(self, books = None):  # инициализация конструктора класса 
         self.books = books  # присваивание значение books атрибуту books текущего экземпляра класса
         if books == None: self.books = []  # проверка значения books, если значение нет выводит None
 
@@ -31,10 +32,10 @@ class Library: # Это объявление класса Library
         for index, book in enumerate(self.books):
             if book.id_ == id_:
                 return index
-        return -1
         raise ValueError("Книги с запрашиваемым id не существует")
-
-if __name__ == '__main__':
+        return -1
+        
+if name == 'main':
     empty_library = Library()  # инициализируем пустую библиотеку
     print(empty_library.get_next_book_id())  # проверяем следующий id для пустой библиотеки
 
@@ -45,4 +46,4 @@ if __name__ == '__main__':
     print(library_with_books.get_next_book_id())  # проверяем следующий id для непустой библиотеки
 
     print(library_with_books.get_index_by_book_id(1))  # проверяем индекс книги с id = 1
-    
+
