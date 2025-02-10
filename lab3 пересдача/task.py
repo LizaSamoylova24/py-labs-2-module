@@ -19,7 +19,6 @@ class Book:
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r})"
 
-
 class PaperBook(Book):
     def __init__(self, name: str, author: str, pages: int):
         super().__init__(name, author)
@@ -39,10 +38,9 @@ class PaperBook(Book):
 
     def __str__(self):
         return f"{super().__str__()}, Страниц: {self.pages}"
-        
+
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})"
-
 
 class AudioBook(Book):
     def __init__(self, name: str, author: str, duration: float):
@@ -74,4 +72,8 @@ if __name__ == "__main__":
 
     print(paper_book)
     print(audio_book)
+
+    # Проверка __repr__
+    print(repr(paper_book))
+    print(repr(audio_book))
     
