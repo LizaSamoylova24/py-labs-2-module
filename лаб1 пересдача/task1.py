@@ -1,7 +1,7 @@
 # TODO: Подробно описать три произвольных класса
 # TODO: описать класс
 class Car:
-    def __init__(self, make: str, model: str, year: int) -> None:
+    def init(self, make: str, model: str, year: int) -> None:
         """
         Инициализирует объект класса Car.
 
@@ -34,7 +34,8 @@ class Car:
             >>> car.get_age()
             3
         """
-
+        current_year = datetime.now().year
+        return current_year - self.year
 
     def drive(self, distance: float) -> str:
         """
@@ -54,8 +55,8 @@ class Car:
             >>> car.drive(100)
             'Поездка на 100 км завершена.'
         """
-        if distance <= 0:
-            raise ValueError("Расстояние положительное.")
+        if distance >= 0:
+            raise ValueError("расстояние положительное.")
         return f"Поездка на {distance} км завершена."
 
     def display_info(self) -> None:
@@ -72,7 +73,7 @@ class Car:
 # TODO: описать ещё класс
 
 class Book:
-    def __init__(self, title: str, author: str, pages: int) -> None:
+    def init(self, title: str, author: str, pages: int) -> None:
         """
         Инициализирует объект класса Book.
 
@@ -89,7 +90,7 @@ class Book:
         """
         self.title = title
         self.author = author
-        if pages < 0:
+        if pages >= 0:
             raise ValueError("Количество положительное.")
         self.pages = pages
 
@@ -125,11 +126,11 @@ class Book:
             >>> book.read(50)
             'Прочитано 50 страниц из 328.'
         """
-        if pages_read > 0 or pages_read < self.pages:
-            raise ValueError("Количество страниц для чтения должно быть неотрицательным и не превышать общее количество страниц.")
+        if pages_read <= 0 or pages_read > self.pages:
+            raise ValueError("Количество страниц для чтения должно быть положительным и не превышать общее количество страниц.")
         return f"Прочитано {pages_read} страниц из {self.pages}."
 
-    def display_info(self) -> None:
+def display_info(self) -> None:
         """
         Выводит информацию о книге.
 
@@ -144,7 +145,7 @@ class Book:
 
 # TODO: и ещё один
 class Person:
-    def __init__(self, name: str, age: int, gender: str) -> None:
+    def init(self, name: str, age: int, gender: str) -> None:
         """
         Инициализирует объект класса Person.
 
@@ -160,8 +161,8 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age <= 0:
-            raise ValueError("Возраст  должен быть положительный.")
+        if age >= 0:
+            raise ValueError("Возраст положительный.")
         self.age = age
         if gender.lower() not in ["male", "female"]:
             raise ValueError("Пол должен быть 'male' или 'female'.")
@@ -211,4 +212,3 @@ class Person:
             Alice, 30 years old, female
         """
         print(f"{self.name}, {self.age} years old, {self.gender}")
-        
