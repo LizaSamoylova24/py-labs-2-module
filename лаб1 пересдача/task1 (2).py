@@ -212,3 +212,4 @@ class Person:
             Alice, 30 years old, female
         """
         print(f"{self.name}, {self.age} years old, {self.gender}")
+        
