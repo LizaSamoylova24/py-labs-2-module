@@ -108,7 +108,7 @@ class Book:
             >>> book.read(50)
             'Прочитано 50 страниц из 328.'
         """
-        if pages_read > 0 or pages_read <= self.pages:
+        if pages_read < 0 or pages_read > self.pages:
             raise ValueError("Количество страниц для чтения должно быть положительным и не превышать общее количество страниц.")
         return f"Прочитано {pages_read} страниц из {self.pages}."
 
