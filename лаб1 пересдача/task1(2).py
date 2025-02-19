@@ -138,7 +138,7 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age > 0:
+        if age < 0:
             raise ValueError("Возраст должен быть положительный.")
         self.age = age
         if gender.lower() not in ["male", "female"]:
