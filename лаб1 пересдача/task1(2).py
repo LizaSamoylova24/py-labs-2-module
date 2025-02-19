@@ -108,7 +108,7 @@ class Book:
             >>> book.read(50)
             'Прочитано 50 страниц из 328.'
         """
-        if pages_read > 0 or pages_read <= self.pages:
+        if pages_read < 0 or pages_read > self.pages:
             raise ValueError("Количество страниц для чтения должно быть положительным и не превышать общее количество страниц.")
         return f"Прочитано {pages_read} страниц из {self.pages}."
 
@@ -138,7 +138,7 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age > 0:
+        if age < 0:
             raise ValueError("Возраст должен быть положительный.")
         self.age = age
         if gender.lower() not in ["male", "female"]:
