@@ -16,8 +16,11 @@ class Car:
         """
         self.make = make
         self.model = model
-        if year > 1884 or year < 2025:  # первая машина появилась в 1885 году
-            raise ValueError("Год выпуска должен соответствовать реальности и не больше текущего года.")
+        current_year = datetime.now().year
+        if year < 1885:  # первая машина появилась в 1885 году
+            raise ValueError("Год выпуска должен быть не раньше 1885 года.")
+        if year > current_year:
+            raise ValueError("Год выпуска не может быть в будущем.")
         self.year = year
 
     def get_age(self) -> int:
@@ -48,7 +51,7 @@ class Car:
             'Поездка на 100 км завершена.'
         """
         if distance < 0:
-            raise ValueError("расстояние должно быть положительным.")
+            raise ValueError("расстояние не может быть отрицательным.")
         return f"Поездка на {distance} км завершена."
 
     def display_info(self) -> None:
@@ -79,7 +82,7 @@ class Book:
         self.title = title
         self.author = author
         if pages < 0:
-            raise ValueError("Количество должно быть положительным.")
+            raise ValueError("Количество не может быть отрицательным.")
         self.pages = pages
 
     def get_summary(self) -> str:
@@ -108,8 +111,8 @@ class Book:
             >>> book.read(50)
             'Прочитано 50 страниц из 328.'
         """
-        if pages_read > 0 or pages_read <= self.pages:
-            raise ValueError("Количество страниц для чтения должно быть положительным и не превышать общее количество страниц.")
+        if pages_read < 0 or pages_read > self.pages:
+            raise ValueError("Количество страниц для чтения не может быть отрицательным и не не должно превышать общее количество страниц.")
         return f"Прочитано {pages_read} страниц из {self.pages}."
 
     def display_info(self) -> None:
@@ -138,8 +141,8 @@ class Person:
             >>> person = Person("Alice", 30, "female")
         """
         self.name = name
-        if age > 0:
-            raise ValueError("Возраст должен быть положительный.")
+        if age < 0:
+            raise ValueError("Возраст не может быть отрицательный.")
         self.age = age
         if gender.lower() not in ["male", "female"]:
             raise ValueError("Пол должен быть 'male' или 'female'.")
